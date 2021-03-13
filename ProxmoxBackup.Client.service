@@ -1,0 +1,19 @@
+[Unit]
+Description=proxmox backup
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3600
+User=root
+WorkingDirectory=%#%#BACKUP_PATH%#%#
+ExecStartPre=
+ExecStart=%#%#BACKUP_PATH%#%#/Run.sh
+ExecStartPost=
+ExecStop=
+ExecReload=
+
+[Install]
+WantedBy=multi-user.target
