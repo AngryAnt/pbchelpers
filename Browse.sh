@@ -14,7 +14,7 @@ SNAPSHOT=$1
 FILE=$2
 
 sudo mkdir "$BACKUP_MOUNT"
-sudo PBS_REPOSITORY="$PBS_REPOSITORY" PBS_PASSWORD="$PBS_PASSWORD" proxmox-backup-client mount "$SNAPSHOT" "$FILE" "$BACKUP_MOUNT"
+sudo PBS_REPOSITORY="$PBS_REPOSITORY" PBS_PASSWORD="$PBS_PASSWORD" proxmox-backup-client mount "$SNAPSHOT" "$FILE" "$BACKUP_MOUNT" --keyfile "$BACKUP_KEYFILE"
 
 if ! type xdg-open > /dev/null; then
 	echo "$FILE of $SNAPSHOT mounted at $BACKUP_MOUNT"

@@ -6,3 +6,5 @@ export PBS_REPOSITORY=""
 export PBS_PASSWORD=""
 # Used by Browse.sh
 export BACKUP_MOUNT="/mnt/backup"
+# Used by Configure, Run, and Browse
+export BACKUP_KEYFILE="/home/[USER NAME HERE]/.config/proxmox-backup/encryption-key.json"

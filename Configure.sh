@@ -9,10 +9,10 @@ if ! [ -e ~/.pxarexclude ]; then
 fi
 
 # Do not generate new encryption if it is already in place
-if ! [ -e ~/.config/proxmox-backup/encryption-key.json ]; then
+if ! [ -e "$BACKUP_KEYFILE" ]; then
 	echo "Setting up encryption"
-	proxmox-backup-client key create --kdf none
-	echo "Remember to store a copy of '~/.config/proxmox-backup/encryption-key.json' - any backups made from this point forward will be inaccessible without it!"
+	proxmox-backup-client key create "$BACKUP_KEYFILE" --kdf none
+	echo "Remember to store a copy of '$BACKUP_KEYFILE' - any backups made from this point forward will be inaccessible without it!"
 	echo "You may also consider recording the paper key for added insurance:"
 	proxmox-backup-client key paperkey --output-format text
 fi

@@ -9,4 +9,4 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
 	exit 1
 fi
 
-proxmox-backup-client backup root.pxar:/
+proxmox-backup-client backup root.pxar:/ --keyfile "$BACKUP_KEYFILE"
